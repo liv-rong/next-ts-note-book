@@ -1,12 +1,26 @@
 import Image from 'next/image'
 
-import { Button } from '@nextui-org/react'
+import { Input } from '@nextui-org/react'
+import { Button } from '@nextui-org/button'
+
 export default function Home() {
   console.log('Home')
   return (
     <main className="bg-pink-200">
       <Button>dianwo</Button>
       <div className="flex justify-center">12</div>
+      <Button>dianwo</Button>
+      <Button>dianwo</Button>
+      <Button color="primary">Button</Button>
+      <Input
+        type="email"
+        label="Email"
+      />
+      <Input
+        type="email"
+        label="Email"
+        placeholder="Enter your email"
+      />
       Click a note on the left to view something! 🥺
     </main>
   )
