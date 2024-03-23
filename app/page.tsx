@@ -7,11 +7,7 @@ export default function Home() {
   console.log('Home')
   return (
     <main className="bg-pink-200">
-      <Button>dianwo</Button>
-      <div className="flex justify-center">12</div>
-      <Button>dianwo</Button>
-      <Button>dianwo</Button>
-      <Button color="primary">Button</Button>
+      <div className="flex justify-center">12</div> <Button color="primary">Button</Button>
       <Input
         type="email"
         label="Email"
