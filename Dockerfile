@@ -8,8 +8,17 @@ RUN npm install --registry=https://registry.npmmirror.com
 
 RUN npx prisma generate
 
-RUN chmod +x /startup.sh
+COPY prisma ./prisma/
+COPY startup.sh ./startup.sh
+
+RUN chmod +x /app/startup.sh
+
 
 EXPOSE 3000
 
-ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["sh","/app/startup.sh"]
+
+
+
+
+
