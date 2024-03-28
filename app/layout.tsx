@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Sidebar from '@/components/sidebar/Sidebar'
+import Header from '@/components/header'
 import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,7 +23,10 @@ export default function RootLayout({
         <Providers>
           <div className="flex justify-between">
             <Sidebar />
-            <section className="flex-1 h-screen">{children}</section>
+            <section className="flex-1 h-screen">
+              <Header />
+              <div className="h-[calc(100vh - 64px)] ">{children}</div>
+            </section>
           </div>
         </Providers>
       </body>
