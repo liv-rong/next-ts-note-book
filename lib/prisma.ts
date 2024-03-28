@@ -3,7 +3,7 @@ import { auth } from 'auth'
 
 import { UserType, NoteType } from '../types'
 
-const globalForPrisma = global
+const globalForPrisma = global as any
 
 export const prisma = globalForPrisma.prisma || new PrismaClient()
 
@@ -27,30 +27,26 @@ export async function addNote(data: NoteType) {
   const result = await prisma.note.create({
     data: {
       title: data.title,
-      content: JSON.parse(data).content,
-      author: { connect: { id: session?.user?.userId } }
+      content: data.content,
+      authorId: data.authorId
     }
   })
-
-  return result.id
+  return result
 }
 
-export async function updateNote(uuid, data) {
-  const parsedData = JSON.parse(data)
+export async function updateNote(uuid: string, data: NoteType) {
   await prisma.note.update({
     where: {
       id: uuid
     },
     data: {
-      title: parsedData.title,
-      content: parsedData.content
+      title: data.title,
+      content: data.content
     }
   })
 }
 
-export async function getNote(uuid) {
-  const session = await auth()
-  if (session == null) return
+export async function getNote(uuid: string) {
   const { title, content, updateTime, id } = await prisma.note.findFirst({
     where: {
       id: uuid
@@ -65,7 +61,7 @@ export async function getNote(uuid) {
   }
 }
 
-export async function delNote(uuid) {
+export async function delNote(uuid: string) {
   await prisma.note.delete({
     where: {
       id: uuid
@@ -73,7 +69,7 @@ export async function delNote(uuid) {
   })
 }
 
-export async function addUser(username, password) {
+export async function addUser(username: string, password: string) {
   const user = await prisma.user.create({
     data: {
       username,
@@ -91,7 +87,7 @@ export async function addUser(username, password) {
   }
 }
 
-export async function getUser(username, password) {
+export async function getUser(username: string, password: string) {
   const user = await prisma.user.findFirst({
     where: {
       username
