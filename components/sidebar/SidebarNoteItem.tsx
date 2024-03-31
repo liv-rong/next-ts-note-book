@@ -12,8 +12,8 @@ export default function SidebarNoteItem(props: NoteType) {
         <p>{props.content ? props.content.substring(0, 20) : <i>(No content)</i>}</p>
       }
     >
-      <header className="sidebar-note-header">
-        <strong>{title}</strong>
+      <header className="flex flex-col gap-2">
+        <strong className="text-xl">{title}</strong>
         <small>{dayjs(updatedAt).format('YYYY-MM-DD hh:mm:ss')}</small>
       </header>
     </SidebarNoteItemContent>
