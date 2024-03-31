@@ -18,8 +18,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Learn More unplugin-icons
+## Learn More technology stack
+
+- next.js
+- unplugin-icons
+- NextUI
+- tailwind.css
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 This project uses [`unplugin-icons`](https://github.com/unplugin/unplugin-icons) to automatically optimize and load Inter, any icon sets that you can use.
+
+This project uses [`NextUI`](https://nextui.org/docs/guide/introduction) to help build beautiful and accessible user interfaces.
