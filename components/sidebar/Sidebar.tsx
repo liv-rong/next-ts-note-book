@@ -2,19 +2,17 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import url from '../../public/star.png'
+import SidebarNoteList from './SidebarNoteList'
 
 export default async function Sidebar() {
   return (
     <section className="bg-gray-50 shadow h-screen w-[250px]">
-      <Link
-        href={'/'}
-        className="link--unstyled"
-      >
-        <section className="flex justify-center space-x-2 py-2">
+      <Link href={'/'}>
+        <section className="flex justify-center items-center space-x-2 py-2 border h-16">
           <Image
             className="logo"
             src={url}
-            width={22}
+            width={30}
             height={20}
             alt=""
             role="presentation"
@@ -28,7 +26,9 @@ export default async function Sidebar() {
       >
         {/* SideSearchField */}
       </section>
-      <nav>{/* SidebarNoteList */}</nav>
+      <nav>
+        <SidebarNoteList />
+      </nav>
     </section>
   )
 }

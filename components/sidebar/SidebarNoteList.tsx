@@ -1,24 +1,36 @@
 import { NoteType } from '@/types'
+import SidebarNoteItem from './SidebarNoteItem'
 
-interface Props {
-  notes: NoteType[]
-}
-
-export default async function NoteList({ notes }: Props) {
-  if (notes.length == 0) {
+export default async function SidebarNoteList() {
+  const items: NoteType[] = [
+    {
+      id: '1',
+      title: 'string',
+      content: 'string',
+      createdAt: '2024-11-09',
+      updatedAt: '2023-09-15',
+      authorId: '12312'
+    },
+    {
+      id: '2',
+      title: 'string',
+      content: 'string',
+      createdAt: '2024-11-12',
+      updatedAt: '2024-11-24',
+      authorId: '2313'
+    }
+  ]
+  if (items.length == 0) {
     return <div className="notes-empty">{'No notes created yet!'}</div>
   }
   return (
     <ul className="notes-list">
-      {notes.map(({ title, content, updatedAt, id }) => {
+      {items.map((item) => {
         return (
-          <li key={id}>
-            <header className="sidebar-note-header">
-              <strong>{title}</strong>
-              <small>{updatedAt}</small>
-              <span> {updatedAt}</span>
-            </header>
-          </li>
+          <SidebarNoteItem
+            {...item}
+            key={item.id}
+          />
         )
       })}
     </ul>
