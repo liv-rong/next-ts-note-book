@@ -9,5 +9,16 @@
     }
   ],
   "dictionaries": ["project-words"],
-  "ignorePaths": ["node_modules", "/cspell.txt"]
+  "ignorePaths": [
+    "node_modules",
+    "/cspell.txt",
+    "./pnpm-lock.yaml",
+    "./tailwind.config.ts",
+    "./prod.docker-compose.yml",
+    "./dev.docker-compose.yml",
+    "prisma/*",
+    ".husky",
+    ".next",
+    "./nginx.conf"
+  ]
 }

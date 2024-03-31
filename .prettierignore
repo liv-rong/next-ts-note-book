@@ -1,0 +1,7 @@
+.husky
+pnpm-lock.yaml
+public
+@types/auto-imports.d.ts
+@types/components.d.ts
+node_modeles
+.next
