@@ -25,6 +25,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 COPY prisma ./prisma/
 COPY prod.startup.sh ./prod.startup.sh
+COPY nginx.conf ./nginx.conf
 RUN chmod +x /app/prod.startup.sh
 
 ENTRYPOINT ["sh", "/app/prod.startup.sh"]

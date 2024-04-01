@@ -1,7 +1,10 @@
 import { NoteType } from '@/types'
 import SidebarNoteItem from './SidebarNoteItem'
+import { getAllNotes } from '@/lib/prisma'
 
 export default async function SidebarNoteList() {
+  const notes = await getAllNotes()
+  console.log(notes, 'notes')
   const items: NoteType[] = [
     {
       id: '1',
@@ -26,6 +29,15 @@ export default async function SidebarNoteList() {
   return (
     <ul className="notes-list">
       {items.map((item) => {
+        return (
+          <SidebarNoteItem
+            {...item}
+            key={item.id}
+          />
+        )
+      })}
+
+      {notes.map((item: any) => {
         return (
           <SidebarNoteItem
             {...item}

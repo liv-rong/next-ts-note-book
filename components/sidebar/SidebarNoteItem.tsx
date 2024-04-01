@@ -6,7 +6,7 @@ export default function SidebarNoteItem(props: NoteType) {
   const { title, content = '', updatedAt } = props
   return (
     <SidebarNoteItemContent
-      id={props.id}
+      id={props.id!}
       title={props.title}
       expandedChildren={
         <p>{props.content ? props.content.substring(0, 20) : <i>(No content)</i>}</p>

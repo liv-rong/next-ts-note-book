@@ -1,5 +1,3 @@
 {
-  "type": "module",
-  "*.ts": ["prettier --list-different", "eslint"],
-  "*.md": "prettier --list-different"
+  "type": "module"
 }

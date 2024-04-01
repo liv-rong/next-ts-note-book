@@ -3,9 +3,6 @@
 import { useState, useRef, useEffect, useTransition } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 
-// import { ExpandDown } from '../svg/expandDown'
-// import { ExpandUp } from '../svg/expandUp'
-
 import ExpandDown from '~icons/material-symbols/expand-circle-down-outline'
 
 import ExpandUp from '~icons/material-symbols/expand-circle-up-outline'
@@ -21,22 +18,11 @@ export default function SidebarNoteContent({ id, title, children, expandedChildr
   const router = useRouter()
   const pathname = usePathname()
   const selectedId = pathname?.split('/')[1] || null
-
-  // const [isPending] = useTransition()
-  // const [isExpanded, setIsExpanded] = useState(false)
   const [isExpand, setIsExpanded] = useState(false)
   const [isShow, setIsShow] = useState(false)
 
   // // Animate after title is edited.
   const itemRef = useRef(null)
-  // const prevTitleRef = useRef(title)
-
-  // useEffect(() => {
-  //   if (title !== prevTitleRef.current) {
-  //     prevTitleRef.current = title
-  //     itemRef.current.classList.add('flash')
-  //   }
-  // }, [title])
 
   return (
     <div

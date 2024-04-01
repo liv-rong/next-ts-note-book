@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import url from '../../public/star.png'
 import SidebarNoteList from './SidebarNoteList'
+import EditButton from '../operate/EditButton'
+import Search from '../search/Search'
 
 export default async function Sidebar() {
   return (
@@ -18,6 +20,7 @@ export default async function Sidebar() {
             role="presentation"
           />
           <strong>next-ts-note-book</strong>
+          <EditButton />
         </section>
       </Link>
       <section
@@ -27,6 +30,7 @@ export default async function Sidebar() {
         {/* SideSearchField */}
       </section>
       <nav>
+        <Search />
         <SidebarNoteList />
       </nav>
     </section>

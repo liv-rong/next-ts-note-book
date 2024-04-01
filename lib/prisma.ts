@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { auth } from 'auth'
+// import { auth } from 'auth'
 
 import { UserType, NoteType } from '../types'
 
@@ -9,21 +9,23 @@ export const prisma = globalForPrisma.prisma || new PrismaClient()
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
-export async function getAllNotes(id: string) {
+export async function getAllNotes(id?: string) {
   // const session = await auth()
   // if (session == null) return []
   // 查找登录用户的笔记
-  const notes = await prisma.note.findMany({
-    where: {
-      authorId: id
-    }
-  })
+  // const notes = await prisma.note.findMany({
+  //   where: {
+  //     authorId: id
+  //   }
+  // })
+
+  const notes = await prisma.note.findMany({})
 
   return notes
 }
 
 export async function addNote(data: NoteType) {
-  const session = await auth()
+  // const session = await auth()
   const result = await prisma.note.create({
     data: {
       title: data.title,
