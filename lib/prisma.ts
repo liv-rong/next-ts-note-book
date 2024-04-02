@@ -19,9 +19,15 @@ export async function getAllNotes(id?: string) {
   //   }
   // })
 
-  const notes = await prisma.note.findMany({})
-
-  return notes
+  try {
+    const notes = await prisma.note.findMany({
+      skip: 0,
+      take: 10
+    })
+    return notes
+  } catch {
+    return []
+  }
 }
 
 export async function addNote(data: NoteType) {

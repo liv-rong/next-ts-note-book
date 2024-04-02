@@ -4,6 +4,7 @@ import { getAllNotes } from '@/lib/prisma'
 
 export default async function SidebarNoteList() {
   const notes = await getAllNotes()
+
   console.log(notes, 'notes')
   const items: NoteType[] = [
     {

@@ -30,9 +30,9 @@ export default function SidebarNoteContent({ id, title, children, expandedChildr
       className="border relative p-2 w-full min-h-20 cursor-pointer"
       onMouseEnter={() => setIsShow(true)}
       onMouseLeave={() => setIsShow(false)}
-      onClick={() => {
-        router.push(`/note/${id}`)
-      }}
+      // onClick={() => {
+      //   router.push(`/note/${id}`)
+      // }}
     >
       {children}
       {isShow && (
