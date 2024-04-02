@@ -35,7 +35,7 @@ services:
       - MYSQL_USER=notes
       - MYSQL_PASSWORD=123456
     ports:
-      - '3307:3307'
+      - '3306:3306'
     healthcheck:
       test: ['CMD', 'mysqladmin', 'ping', '-h127.0.0.1', '-P3306']
       interval: 5s

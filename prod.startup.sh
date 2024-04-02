@@ -10,3 +10,7 @@ else
 fi
 
 node server.js
+
+# npx prisma generate
+
+# npm run build && npm run start

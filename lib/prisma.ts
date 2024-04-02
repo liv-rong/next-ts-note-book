@@ -35,7 +35,7 @@ export async function addNote(data: NoteType) {
   const result = await prisma.note.create({
     data: {
       title: data.title,
-      content: data.content,
+      content: data.content || '',
       authorId: data.authorId
     }
   })

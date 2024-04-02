@@ -2,20 +2,22 @@
 
 import { Button } from '@nextui-org/react'
 import EditIcon from '~icons/line-md/edit'
-import { addNote } from '@/lib/prisma'
+
 interface Props {
   noteId?: string | null
   children?: React.ReactNode | null
+  edit?: (noteId: string) => void
+  add?: () => void
 }
 
-export default function EditButton({ noteId, children }: Props) {
+export default function EditButton({ noteId, children, edit, add }: Props) {
   const isDraft = noteId == null
   const handleEdit = () => {
-    const a = addNote({
-      title: 'new note',
-      content: ''
-    })
-    console.log(a, '1111')
+    if (!noteId) {
+      add && add()
+    } else {
+      edit && edit(noteId)
+    }
   }
   return (
     <Button

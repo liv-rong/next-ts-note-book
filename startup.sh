@@ -10,3 +10,8 @@ else
 fi
 
 npm run build && npm run start
+
+
+
+
+
