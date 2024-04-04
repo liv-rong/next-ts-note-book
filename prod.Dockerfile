@@ -6,9 +6,11 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm i --registry=https://registry.npmmirror.com;
+RUN npm i
 
 RUN npx prisma generate
+
+
 
 RUN npm run build;
 
@@ -27,5 +29,9 @@ COPY prisma ./prisma/
 COPY prod.startup.sh ./prod.startup.sh
 COPY nginx.conf ./nginx.conf
 RUN chmod +x /app/prod.startup.sh
+
+RUN npx prisma migrate deploy
+
+RUN npx prisma db push
 
 ENTRYPOINT ["sh", "/app/prod.startup.sh"]
