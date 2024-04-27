@@ -4,15 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install --registry=https://registry.npmmirror.com
+RUN npm install
 
 RUN npx prisma generate
 
 COPY prisma ./prisma/
 COPY startup.sh ./dev.startup.sh
-
 RUN chmod +x /app/dev.startup.sh
-
 
 
 EXPOSE 3000

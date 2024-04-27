@@ -30,10 +30,10 @@ services:
     # volumes:
     #   - ./docker/data/mysql/:/var/lib/mysql/
     environment:
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=notes
-      - MYSQL_USER=notes
-      - MYSQL_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=root #MySQL的根密码是admin
+      - MYSQL_DATABASE=notes # 数据库名称为notes
+      - MYSQL_USER=notes # 用户名称为notes
+      - MYSQL_PASSWORD=123456 # 密码为123456
     ports:
       - '3306:3306'
     healthcheck:

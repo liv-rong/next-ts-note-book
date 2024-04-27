@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm i
+RUN npm i  --registry=https://registry.npmmirror.com
 
 RUN npx prisma generate
 

@@ -3,6 +3,27 @@ import { marked } from 'marked'
 
 import sanitizeHtml from 'sanitize-html'
 
-export default async function NotePreview() {
-  return <section className="bg-gray-50 shadow h-16 w-full ">NotePreview</section>
+const allowedTags = sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3'])
+
+const allowedAttributes = Object.assign({}, sanitizeHtml.defaults.allowedAttributes, {
+  img: ['alt', 'src']
+})
+
+export default async function NotePreview({ children }: { children?: string }) {
+  const markedResult = await marked(children || '')
+
+  const sanitizedHtml = sanitizeHtml(markedResult, {
+    allowedTags,
+    allowedAttributes
+  })
+  return (
+    <div className="note-preview">
+      <div
+        className="text-with-markdown"
+        dangerouslySetInnerHTML={{
+          __html: sanitizedHtml
+        }}
+      />
+    </div>
+  )
 }
