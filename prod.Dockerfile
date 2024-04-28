@@ -29,8 +29,8 @@ COPY prod.startup.sh ./prod.startup.sh
 COPY nginx.conf ./nginx.conf
 RUN chmod +x /app/prod.startup.sh
 
-RUN npx prisma migrate deploy
+# RUN npx prisma migrate deploy
 
-RUN npx prisma db push
+# RUN npx prisma db push
 
 ENTRYPOINT ["sh", "/app/prod.startup.sh"]

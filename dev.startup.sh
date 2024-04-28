@@ -9,14 +9,5 @@ else
     npx prisma migrate deploy
 fi
 
-npx prisma generate
+npm run build && npm run start
 
-if [ -f yarn.lock ]; then
-    yarn dev;
-elif [ -f package-lock.json ]; then
-    npm run dev;
-elif [ -f pnpm-lock.yaml ]; then
-    pnpm dev;
-else
-    npm run dev;
-fi

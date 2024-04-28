@@ -1,7 +1,7 @@
-'use client'
+// 'use client'
 
-import { Button } from '@nextui-org/react'
-import EditIcon from '~icons/line-md/edit'
+// // import { Button } from '@nextui-org/react'
+// import EditIcon from '~icons/line-md/edit'
 
 interface Props {
   noteId?: string | null
@@ -12,23 +12,23 @@ interface Props {
 
 export default function EditButton({ noteId, children, edit, add }: Props) {
   const isDraft = noteId == null
-  const handleEdit = () => {
-    if (!noteId) {
-      add && add()
-    } else {
-      edit && edit(noteId)
-    }
-  }
+  // const handleEdit = () => {
+  //   if (!noteId) {
+  //     add && add()
+  //   } else {
+  //     edit && edit(noteId)
+  //   }
+  // }
   return (
-    <Button
-      isIconOnly
-      variant="light"
-      size="md"
-      color={isDraft ? 'secondary' : 'primary'}
-      aria-label="Like"
-      onClick={handleEdit}
+    <button
+    // variant="light"
+    // size="md"
+    // color={isDraft ? 'secondary' : 'primary'}
+    // aria-label="Like"
+    // onClick={handleEdit}
     >
-      <EditIcon />
-    </Button>
+      342
+      {/* <EditIcon /> */}
+    </button>
   )
 }

@@ -15,15 +15,15 @@ services:
       - .env.development
     volumes:
       - .:/app
-    restart: always
     ports:
       - 3000:3000
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    restart: always
     networks:
       - react-notes-dev
-    depends_on:
-      mysql:
-        condition: service_healthy
-
   mysql:
     image: mysql:8.0
     container_name: next-app-mysql
@@ -45,3 +45,19 @@ services:
       retries: 20
     networks:
       - react-notes-dev
+  nginx:
+    image: nginx
+    container_name: next-app-nginx
+    volumes:
+      # - ./docker/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    #   - ./docker/ssl/notes.yayujs.com.key:/etc/nginx/ssl/notes.yayujs.com.key
+    #   - ./docker/ssl/notes.yayujs.com.pem:/etc/nginx/ssl/notes.yayujs.com.pem
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    networks:
+      - react-notes-dev
+    depends_on:
+      - next-app-dev
